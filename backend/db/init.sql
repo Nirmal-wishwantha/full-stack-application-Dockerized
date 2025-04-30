@@ -1,3 +1,7 @@
+-- Set root password
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'acpt';
+ALTER USER 'root'@'%' IDENTIFIED BY 'acpt';
+
 CREATE DATABASE IF NOT EXISTS wemixt;
 USE wemixt;
 

@@ -7,18 +7,12 @@ const path = require("path");
 const userdocumentRoutes = require('./routes/userDocumentRoute')
 const memberDocumentRoutes = require('./routes/memberDocumentRoutes')
 
-// CORS middleware
-// app.use(cors({
-//     origin: 'http://localhost:5173', // Allow frontend to access
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//     allowedHeaders: ['Content-Type', 'Authorization']
-// }));
-
 app.use(cors({
-    origin: [process.env.FRONTEND_URL || 'http://frontend:80', 'http://localhost:5173'],
+    origin: 'http://localhost', // Allow frontend origin
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
+    credentials: true
+  }));
+  app.use(express.json());
 
 // Middleware for parsing JSON and URL-encoded bodies
 app.use(express.urlencoded({ extended: true }));
